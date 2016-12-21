@@ -7,9 +7,9 @@ router.get('/', function(req, res, next) {
   res.render('index.ejs');
 });
 
-router.get('/movies/:movieName', (req, res) => {
-   const { movieName } = req.params;
-   const movieFile = `./${movieName}`;
+router.get('/video', (req, res) => {
+
+   const movieFile = `movie.mp4`;
    fs.stat(movieFile, (err, stats) => {
      if (err) {
        console.log(err);
@@ -19,8 +19,14 @@ router.get('/movies/:movieName', (req, res) => {
      const { range } = req.headers;
      const { size } = stats;
      const start = Number((range || '').replace(/bytes=/, '').split('-')[0]);
-     const end = size - 1;
-     const chunkSize = (end - start) + 1;
+     var end = size - 1;
+     var chunkSize = (end - start) + 1;
+      // poor hack to send smaller chunks to the browser
+      var maxChunk = 1024 * 1024; // 1MB at a time
+      if (chunkSize > maxChunk) {
+        end = start + maxChunk - 1;
+        chunkSize = (end - start) + 1;
+      }
 
      res.set({
        'Content-Range': `bytes ${start}-${end}/${size}`,
