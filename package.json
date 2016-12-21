@@ -1,0 +1,40 @@
+{
+  "name": "electron-quick-start",
+  "productName ": "Rheinpower Tool",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^1.4.1",
+    "electron-installer-windows": "^0.2.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.5",
+    "electron-dl": "^1.5.0",
+    "exceljs": "^0.2.37",
+    "express": "^4.14.0",
+    "fs-extra": "^1.0.0",
+    "jquery": "^3.1.1",
+    "morgan": "^1.7.0",
+    "msexcel-builder": "0.0.2",
+    "node-xlsx": "^0.7.4",
+    "release": "0.0.0",
+    "serve-favicon": "^2.3.2",
+    "xlsx": "^0.8.0"
+  }
+}
